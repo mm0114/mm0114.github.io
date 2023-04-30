@@ -125,7 +125,7 @@ export default function resume() {
                                     成都数联信信息技术有限公司
                                 </span>
                             </div>
-                            <div class="col-3 p-t-10 p-b-10 border">● 2022.4 - 2022.9</div>
+                            <div class="col-3 p-t-10 p-b-10 border">● 2022.4 - 2023.4</div>
                         </div>
                     </div>
                 </section>
