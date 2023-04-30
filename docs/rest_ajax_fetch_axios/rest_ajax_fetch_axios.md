@@ -8,7 +8,7 @@
     **Controller** -- 控制器，复杂加载数据并选择视图来呈现数据
 
 - 传统的服务器是直接为客户端返回一个页面
-    - 但是传统的服务器并不能适用于现在的应用场景
+  - 但是传统的服务器并不能适用于现在的应用场景
 
 现在的应用场景，一个应用通常都会有多个客户端（client）存在
     web端    移动端（app）    pc端  
@@ -26,7 +26,7 @@
 ## 简介
 
 Rest
-    - **REpresentational State Transfer** 
+    - **REpresentational State Transfer**
         - **表示层状态的传输**
         - **Rest实际上就是一种服务器的设计风格**
         - 它的主要特点就是，**服务器只返回数据**
@@ -43,8 +43,6 @@ Rest
         POST /user
         DELETE /user/:id
         ...
-
-
 
 ## api
 
@@ -166,19 +164,13 @@ app.put("/students", (req, res) => {
 })
 ```
 
-
-
 # Ajax
-
-
 
 ## 简介
 
 ​                    **在js中向服务器发送的请求加载数的技术叫AJAX**
 
-​					网页应用能够快速地将增量更新呈现在用户界面上，而不需要重载（刷新）整个页面。这使得程序能够更快地回应用户的操作。
-
-
+​     网页应用能够快速地将增量更新呈现在用户界面上，而不需要重载（刷新）整个页面。这使得程序能够更快地回应用户的操作。
 
 ​                    **[AJAX](https://developer.mozilla.org/zh-CN/docs/Web/Guide/AJAX)**
 
@@ -192,14 +184,14 @@ app.put("/students", (req, res) => {
 
 ```xml
             <student>
-           		name>孙悟空</name>    
+             <name>孙悟空</name>    
             </student>
 ```
 
 ​                        \- 目前数据格式都使用`json`
 
 ```json
-			{"name" :"孙悟空"}
+   {"name" :"孙悟空"}
 ```
 
 ## 方案
@@ -257,27 +249,25 @@ app.put("/students", (req, res) => {
         </script>
 ```
 
-
-
 ## CORS跨域
 
-###                     \- [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) (跨域资源共享)
+### \- [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) (跨域资源共享)
 
 ​                        \- 跨域请求
 
 ​                            \- 如果两个网站的完整的域名不相同
 
-​                                a网站：http://haha.com 
+​                                a网站：<http://haha.com>
 
-​                                b网站：http://heihei.com
+​                                b网站：<http://heihei.com>
 
 ​                            \- 跨域需要检查三个东西：
 
 ​                                协议 域名 端口号
 
-​                                http://localhost:5000
+​                                <http://localhost:5000>
 
-​                                http://127.0.0.1:5000
+​                                <http://127.0.0.1:5000>
 
 ​                                \- 三个只要有一个不同，就算跨域
 
@@ -285,9 +275,7 @@ app.put("/students", (req, res) => {
 
 ​                                **浏览器为了服务器的安全，会阻止JS读取到服务器的数据**
 
-
-
-###                         \- 解决方案
+### \- 解决方案
 
 ​                            \- 在服务器中设置一个**允许跨域的头**
 
@@ -295,13 +283,13 @@ app.put("/students", (req, res) => {
 
 ​                                    \- 允许那些客户端访问我们的服务器
 
-​                                https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+​                                <https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS>
 
 ### [设置响应头](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 
 ```js
 app.use((req, res, next) => {
-	res.setHeader("Access-Control-Allow-Origin", "*")
+ res.setHeader("Access-Control-Allow-Origin", "*")
     res.setHeader("Access-Control-Allow-Methods", "GET,POST")
     res.setHeader("Access-Control-Allow-Headers", "Content-type")
     // Access-Control-Allow-Origin 设置指定值时只能设置一个
@@ -418,8 +406,8 @@ OPTIONS请求也被称为预检请求，主要用于获知服务端支持的HTTP
 ### 基本用法
 
 ```
-	fetch(resource)
-	fetch(resource, options)
+ fetch(resource)
+ fetch(resource, options)
 ```
 
 ### get
@@ -453,7 +441,7 @@ OPTIONS请求也被称为预检请求，主要用于获知服务端支持的HTTP
                     
                     headers:{
                         // application/x-www-form-urlencoded // 表单项
-                        "Content-type":"application/json"	// json类型
+                        "Content-type":"application/json" // json类型
                     },
 
                     // 通过body去发送数据时，必须通过请求头来指定数据的类型
@@ -468,26 +456,24 @@ OPTIONS请求也被称为预检请求，主要用于获知服务端支持的HTTP
 
 ### 注意
 
-​	fecth是原生js自带的，所以没有那么智能，需要手动配置一些参数
+​ fecth是原生js自带的，所以没有那么智能，需要手动配置一些参数
 
 ```js
     // Access-Control-Allow-Methods 允许的请求的方式
     // Access-Control-Allow-Headers 允许传递的请求头    
-	res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,PATCH")
-    res.setHeader("Access-Control-Allow-Headers", "Content-type")	// 内容类型
+ res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,PATCH")
+    res.setHeader("Access-Control-Allow-Headers", "Content-type") // 内容类型
 ```
-
-
 
 ## 本地存储
 
 会话存储：**sessionStorage**
 
-​				页面关闭而失效
+​    页面关闭而失效
 
 本地存储：**localStorage**
 
-​				长久存储，需要手动删除
+​    长久存储，需要手动删除
 
 | 方法         | 作用         |
 | ------------ | ------------ |
@@ -495,8 +481,6 @@ OPTIONS请求也被称为预检请求，主要用于获知服务端支持的HTTP
 | getItem()    | 获取数据     |
 | removeItem() | 删除数据     |
 | clear()      | 清空数据     |
-
-
 
 ```js
             // sessionStorage.setItem("name", "孙悟空")
@@ -517,8 +501,6 @@ OPTIONS请求也被称为预检请求，主要用于获知服务端支持的HTTP
 
             sessionStorage.clear()
 ```
-
-
 
 ### 登录
 
@@ -543,8 +525,6 @@ app.post("/login", (req, res) => {
     }
 })
 ```
-
-
 
 ```html
         <style>
@@ -733,8 +713,6 @@ app.post("/login", (req, res) => {
     </body>
 ```
 
-
-
 ## token
 
 ### 简介
@@ -774,14 +752,12 @@ app.post("/login", (req, res) => {
 ​                                1.安装
 
                                     ```
-    		yarn add jsonwebtoken
+      yarn add jsonwebtoken
                                     ```
 
 ​                                2.引入
 
 ​                                3....
-
-
 
 ```js
 // 引入jwt
@@ -808,8 +784,6 @@ try {
     console.log("无效的token")
 }
 ```
-
-
 
 ### 使用
 
@@ -896,8 +870,6 @@ app.get("/students", (req, res) => {
     }
 })
 ```
-
-
 
 ```js
             // 点击login-btn后实现登录功能
@@ -1037,10 +1009,6 @@ app.get("/students", (req, res) => {
             }
 ```
 
-
-
-
-
 ## fetch补充
 
 ### [AbortController](https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController/AbortController)—终止请求
@@ -1097,29 +1065,21 @@ app.get("/students", (req, res) => {
     </body>
 ```
 
-
-
-
-
 ## axios
 
 ### 简介
 
-​		基于promise可以用于浏览器和node.js的网络请求库
+​  基于promise可以用于浏览器和node.js的网络请求库
 
-​		[Axios](https://www.axios-http.cn/docs/intro) 是一个基于 ***promise*** 网络请求库，作用于[`node.js`](https://nodejs.org/) 和浏览器中。 它是 ***isomorphic*** 的(即同一套代码可以运行在浏览器和node.js中)。在服务端它使用原生 node.js `http` 模块, 而在客户端 (浏览端) 则使用 **XMLHttpRequests**。
-
-
+​  [Axios](https://www.axios-http.cn/docs/intro) 是一个基于 ***promise*** 网络请求库，作用于[`node.js`](https://nodejs.org/) 和浏览器中。 它是 ***isomorphic*** 的(即同一套代码可以运行在浏览器和node.js中)。在服务端它使用原生 node.js `http` 模块, 而在客户端 (浏览端) 则使用 **XMLHttpRequests**。
 
 ### 基本使用
 
 **注意**
 
-​	**axios**很智能，相比较与**fetch**，能自动帮忙处理请求头，**json**转换数据啊。
+​ **axios**很智能，相比较与**fetch**，能自动帮忙处理请求头，**json**转换数据啊。
 
-​	**默认状态码200—300**，可以更改。状态码不符合都走***catch***
-
-
+​ **默认状态码200—300**，可以更改。状态码不符合都走***catch***
 
 ```html
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -1174,8 +1134,6 @@ app.get("/students", (req, res) => {
         </script>
     </body>
 ```
-
-
 
 ### [配置对象](https://www.axios-http.cn/docs/req_config)
 
@@ -1243,8 +1201,6 @@ app.get("/students", (req, res) => {
     </body>
 ```
 
-
-
 ### [取消请求](https://www.axios-http.cn/docs/cancellation)
 
 Axios 支持以 fetch API 方式—— [`AbortController`](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) 取消请求：
@@ -1260,8 +1216,6 @@ axios.get('/foo/bar', {
 // 取消请求
 controller.abort()
 ```
-
-
 
 ### [响应结构](https://www.axios-http.cn/docs/res_schema)
 
@@ -1293,14 +1247,12 @@ controller.abort()
 }
 ```
 
-
-
 ### [默认配置](https://www.axios-http.cn/docs/config_defaults)
 
 可以指定默认配置，它将作用于每个请求。
 
 ```html
-   	<script>
+    <script>
             axios.defaults.baseURL = "http://localhost:3000"
             axios.defaults.headers.common[
                 "Authorization"
@@ -1329,8 +1281,6 @@ controller.abort()
         </script>
     </body>
 ```
-
-
 
 ### [自定义实例默认值](https://www.axios-http.cn/docs/config_defaults)
 
@@ -1361,8 +1311,6 @@ controller.abort()
             }
 ```
 
-
-
 ### [拦截器](https://www.axios-http.cn/docs/interceptors)
 
 在请求或响应被 then 或 catch 处理前拦截它们。
@@ -1389,10 +1337,8 @@ axios.interceptors.response.use(function (response) {
   });
 ```
 
-
-
 ```js
-			axios.defaults.baseURL = "http://localhost:3000"
+   axios.defaults.baseURL = "http://localhost:3000"
 
             const myAxios = axios.create()
 
@@ -1434,4 +1380,3 @@ axios.interceptors.response.use(function (response) {
 const myInterceptor = axios.interceptors.request.use(function () {/*...*/});
 axios.interceptors.request.eject(myInterceptor);
 ```
-

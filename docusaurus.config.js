@@ -85,11 +85,6 @@ const config = {
                                 label: 'node',
                                 docId: 'node.js/node.js',
                             },
-                            // {
-                            //     type: 'doc',
-                            //     label: 'nginx',
-                            //     docId: 'nginx/nginx',
-                            // },
                             {
                                 type: 'doc',
                                 label: 'rest、ajax、fetch、axios',
@@ -113,8 +108,8 @@ const config = {
                         title: 'Docs',
                         items: [
                             {
-                                label: 'Tutorial',
-                                to: '/docs/intro',
+                                label: 'node',
+                                to: '/node.js',
                             },
                         ],
                     },
