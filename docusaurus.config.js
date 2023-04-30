@@ -28,8 +28,8 @@ const config = {
     // metadata like html lang. For example, if your site is Chinese, you may want
     // to replace "en" with "zh-Hans".
     i18n: {
-        defaultLocale: 'zh-CN',
-        locales: ['zh-CN'],
+        defaultLocale: 'zh',
+        locales: ['zh'],
     },
 
     presets: [
@@ -42,16 +42,17 @@ const config = {
                     sidebarPath: require.resolve('./sidebars.js'),
                     // Please change this to your repo.
                     // Remove this to remove the "edit this page" links.
-                    editUrl:
-                        'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+                    // editUrl:
+                    //     'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
                 },
-                blog: {
-                    showReadingTime: true,
-                    // Please change this to your repo.
-                    // Remove this to remove the "edit this page" links.
-                    editUrl:
-                        'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-                },
+                // blog: {
+                //     showReadingTime: true,
+                //     // Please change this to your repo.
+                //     // Remove this to remove the "edit this page" links.
+                //     // editUrl:
+                //     //     'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+                // },
+                blog:false,
                 pages: {
                     path: 'src/pages',
                 },
@@ -79,6 +80,7 @@ const config = {
                         sidebarId: 'tutorialSidebar',
                         position: 'left',
                         label: 'docs',
+                        to: '/node.js',
                         items: [
                             {
                                 type: 'doc',
@@ -92,7 +94,7 @@ const config = {
                             },
                         ],
                     },
-                    { to: '/blog', label: 'Blog', position: 'left' },
+                    // { to: '/blog', label: 'Blog', position: 'left' },
                     { to: '/resume', label: 'resume', position: 'left' },
                     {
                         href: 'https://github.com/facebook/docusaurus',
@@ -133,10 +135,10 @@ const config = {
                     {
                         title: 'More',
                         items: [
-                            {
-                                label: 'Blog',
-                                to: '/blog',
-                            },
+                            // {
+                            //     label: 'Blog',
+                            //     to: '/blog',
+                            // },
                             {
                                 label: 'GitHub',
                                 href: 'https://github.com/facebook/docusaurus',
